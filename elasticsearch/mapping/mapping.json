@@ -1,0 +1,83 @@
+{
+  "index_patterns": ["*_test"], 
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "nori_analyzer" : {
+          "type" : "custom",
+          "tokenizer" : "nori_tokenizer",
+          "filter" : "synonym"
+        },
+        "stop_nori" : {
+          "type" : "custom",
+          "tokenizer" : "nori_tokenizer",
+          "filter" : "stop_filter"
+        },
+        "ngram" : {
+          "tokenizer" : "ngram_tokenizer",
+          "filter" : [
+            "lowercase",
+            "synonym",
+            "stop_filter"
+            ]
+        }
+      },
+      "tokenizer": {
+        "ngram_tokenizer" : {
+          "type" : "ngram",
+          "min_gram" : 2,
+          "max_gram" : 3,
+          "token_char" : "letter"
+        }
+      }, 
+      "filter" : {
+        "synonym" : {
+          "type" : "synonym",
+          "synonyms_path" : "analysis/synonym.txt"
+        },
+        "stop_filter" : {
+          "type" : "stop",
+          "stopwords_path" : "analysis/stop_dic.txt"
+        }
+      }
+    }
+  }, 
+  "mappings": {
+    "properties": {
+      "name" : {
+        "type" : "text"
+      },
+      "site_nm" : {
+        "type" : "keyword"
+      },
+      "middle_cate" : {
+        "type" : "text",
+        "analyzer": "ngram",
+        "search_analyzer": "standard"
+      },
+      "detail_cate" : {
+        "type" : "text",
+        "analyzer": "ngram",
+        "search_analyzer": "standard"
+      },
+      "cate" : {
+        "type" : "text",
+        "analyzer": "ngram",
+        "search_analyzer": "standard"
+      },
+      "addr" : {
+        "type" : "text",
+        "analyzer": "nori_analyzer",
+        "search_analyzer": "stop_nori"
+      },
+      "load_addr" : {
+        "type" : "text",
+        "analyzer": "nori_analyzer"
+      },
+
+      "floor" : {
+        "type" : "keyword"
+      }
+    }
+  }
+}

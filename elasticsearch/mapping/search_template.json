@@ -1,0 +1,42 @@
+{
+    "script" : {
+        "lang": "mustache",
+        "source":  ''' {
+        "query" : {
+            "bool" : {
+            "must_not" : [
+            {{#floor_level}},
+            {"term" : {"floor.keyword" : "{{floor_level}}" }},
+            {{/floor_level}} ''' ],
+            "must" : [
+                {
+                "wildcard" : {
+                "site_nm" : "{{site_name}}"
+                }
+                },
+                {
+                "wildcard" : {
+                "name" : "{{store_name}}"
+                }
+                },
+                {
+                "match" : {
+                    "addr" : {
+                    "query" : "{{address}}",
+                    "operator" : "{{address_operator}}"
+                    }
+                }
+                },
+                {
+                "multi_match" :  {
+                    "query" : "{{category}}",
+                    "fields" : ["detail_cate","middle_cate","cate"],
+                    "operator" : "{{category_operator}}"
+                    }
+                }
+            ]
+            }
+        }
+    } 
+    }
+}

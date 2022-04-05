@@ -1,0 +1,13 @@
+{
+    "id" : "search_template",
+    "params" : {
+      "floor_level" : "",
+      "address" : "서울특별시",
+      "address_operator" : "or",
+      "category" : "한식",
+      "category_operator" : "or",
+      "site_name" : "*",
+      "store_name" : "*"
+  }
+}
+  
