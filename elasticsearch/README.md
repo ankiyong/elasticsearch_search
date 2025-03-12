@@ -5,6 +5,7 @@
 🚀 FastAPI
 - 가볍고 빠른 API 서버 구축을 위해 선택
 - Django만 사용할 줄 알고 있으나, 제공하는 기능들이 현 프로젝트에는 과하다는 판단에 선택하지 않음
+
 :mag: Elasticsearch
 - Opensearch가 선택지로 주어졌지만, Elasticsearch가 개인 프로젝트로 사용할땐 무료이기 때문에 선택
 
@@ -14,6 +15,9 @@
 
 3. 진행 과정
 (https://aky123.tistory.com/16)[진행과정-1]
+
 (https://aky123.tistory.com/19)[진행과정-2]
+
 (https://aky123.tistory.com/20)[진행과정-3]
+
 (https://aky123.tistory.com/21)[진행과정-4]
